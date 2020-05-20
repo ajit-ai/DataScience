@@ -9,7 +9,7 @@ import org.springframework.validation.Validator;
 
 @Component
 public class UserDetailValidator implements Validator {
-    private String ID_REQUIRED = "id.required";
+    private static final String ID_REQUIRED = "id.required";
 
     @Override
     public boolean supports(Class<?> clazz) {

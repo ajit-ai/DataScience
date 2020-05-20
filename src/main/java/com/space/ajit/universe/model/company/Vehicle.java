@@ -1,15 +1,17 @@
 package com.space.ajit.universe.model.company;
 
+import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.UUID;
 
+@Document
+@Data
 public class Vehicle {
 
     @Id
-    private UUID _id;
-
-
+    private int _id;
     private String make;
     private String model;
     private String registrationNumber;
@@ -17,45 +19,11 @@ public class Vehicle {
     public Vehicle() {
     }
 
-    public Vehicle(String make, String model, String registrationNumber) {
-        this._id = UUID.randomUUID();
+    public Vehicle(int _id, String make, String model, String registrationNumber) {
+        this._id = _id;
         this.make = make;
         this.model = model;
         this.registrationNumber = registrationNumber;
-    }
-
-    public UUID get_id() {
-        return _id;
-    }
-
-    public String getMake() {
-        return make;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public String getRegistrationNumber() {
-        return registrationNumber;
-    }
-
-    public void setMake(String make) {
-        this.make = make;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    @Override
-    public String toString() {
-        return "Vehicle{" +
-                "_id=" + _id +
-                ", make='" + make + '\'' +
-                ", model='" + model + '\'' +
-                ", registrationNumber='" + registrationNumber + '\'' +
-                '}';
     }
 
     @Override
@@ -65,7 +33,7 @@ public class Vehicle {
 
         Vehicle vehicle = (Vehicle) o;
 
-        if (get_id() != null ? !get_id().equals(vehicle.get_id()) : vehicle.get_id() != null) return false;
+        if (get_id() != vehicle.get_id()) return false;
         if (getMake() != null ? !getMake().equals(vehicle.getMake()) : vehicle.getMake() != null) return false;
         if (getModel() != null ? !getModel().equals(vehicle.getModel()) : vehicle.getModel() != null) return false;
         return getRegistrationNumber() != null ? getRegistrationNumber().equals(vehicle.getRegistrationNumber()) : vehicle.getRegistrationNumber() == null;
@@ -73,11 +41,10 @@ public class Vehicle {
 
     @Override
     public int hashCode() {
-        int result = get_id() != null ? get_id().hashCode() : 0;
+        int result = get_id();
         result = 31 * result + (getMake() != null ? getMake().hashCode() : 0);
         result = 31 * result + (getModel() != null ? getModel().hashCode() : 0);
         result = 31 * result + (getRegistrationNumber() != null ? getRegistrationNumber().hashCode() : 0);
         return result;
     }
-
 }

@@ -4,6 +4,8 @@ import com.space.ajit.universe.model.universe.City;
 import lombok.Data;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Data
 @Document
 public class Countries {
@@ -20,6 +22,7 @@ public class Countries {
     private long longitude;
     private long surfaceArea;
     private long population;
+    private List<Address> addresses;
 
 
     @Override

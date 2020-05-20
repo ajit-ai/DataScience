@@ -1,4 +1,4 @@
-package com.space.ajit.universe.model.universe;
+package com.space.ajit.universe.model.company;
 
 import com.space.ajit.universe.model.universe.Address;
 import lombok.Data;

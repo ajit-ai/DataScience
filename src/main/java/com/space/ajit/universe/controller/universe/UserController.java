@@ -34,11 +34,6 @@ public class UserController {
 
     }
 
-    @InitBinder
-    private void initBinder(WebDataBinder binder) {
-        binder.setValidator(userDetailValidator);
-    }
-
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public ResponseEntity<List<UserDetails>> userDetails() {
 
