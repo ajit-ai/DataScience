@@ -7,6 +7,9 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import java.util.Optional;
+import java.util.UUID;
+
 @Component
 public class UserDetailValidator implements Validator {
     private static final String ID_REQUIRED = "id.required";
@@ -21,7 +24,7 @@ public class UserDetailValidator implements Validator {
         //ValidationUtils.rejectIfEmptyOrWhitespace(errors,"id",ID_REQUIRED);
 
         UserDetails userDetails = (UserDetails) object;
-        if(userDetails.getId()<1) {
+        if(userDetails.getId() <1) {
             errors.rejectValue("id", "negativeValue", new Object[]{"'id'"}, "id can't be negative");
         }
 
